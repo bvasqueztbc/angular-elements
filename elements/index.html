@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Custom Angular Element</title>
+
+  </head>
+  <body>
+
+    <framework-vote  logo="./assets/angular.png" title="Do you like Angular ?"></framework-vote>
+    
+    <h1 id="result" style="text-align: center" > Give your Vote !!!</h1>
+    
+    <script src="framework-vote.js"></script>
+
+    <script>
+        const vote = document.querySelector('framework-vote');
+        const result = document.querySelector('#result');
+        vote.addEventListener('like', (event)=> {
+            console.log('You Liked Angular ...');
+            result.innerHTML = "Up Vote :  " + event.detail; 
+            console.log(event);
+        });
+
+        vote.addEventListener('dislike',(event)=> {
+            console.log('You Do not like Angular...');
+            result.innerHTML = "Down Vote:  " + event.detail;
+            console.log(event);
+        });
+    </script>
+  </body>
+</html>
